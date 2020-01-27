@@ -1,23 +1,38 @@
 "use strict";
 
-let num = 266219;
+let lang = prompt('Укажите язык (ru/en)');
+
+if (lang === 'ru') {console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');}
+else if (lang === 'en') {console.log('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');}
+else {console.log('Что то пошло не так');}
 
 
-let str = num + '';
-console.log(str.split(''));
-
-let multiplication = 1;
-
-for(let i = 0; i < str.length; i++) {
-    multiplication *= +str[i];
+switch (lang) {
+    case 'ru': console.log('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье'); break;
+    case 'en': console.log('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday'); break;
+    default: console.log('Что то пошло не так'); break;
 }
-console.log(multiplication);
 
 
-let pow = multiplication ** 3;
-console.log(pow);
+let ru = [
+    ['Понедельник', 'Вторник', 'Среда'],
+    ['Четверг', 'Пятница', 'Суббота'],
+    ['Воскресенье']
+];
+
+let en = [
+    ['Monday', 'Tuesday', 'Wednesday'],
+    ['Thursday', 'Friday', 'Saturday'],
+    ['Sunday']
+];
+
+console.log(eval(lang));
 
 
-pow += '';
-console.log(+pow.substring(0, 2));
+// п.2
+let namePerson = prompt('Укажите имя:'),
+    result;
 
+result = (namePerson === 'Артем') ? 'Директор' : (namePerson === 'Максим') ? 'Преподаватель' : 'Студент';
+
+console.log(result);
