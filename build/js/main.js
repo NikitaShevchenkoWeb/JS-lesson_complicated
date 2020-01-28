@@ -1,16 +1,19 @@
 "use strict";
 
-var num = 266219;
-var str = num + '';
-console.log(str.split(''));
-var multiplication = 1;
+var myStr = 0;
 
-for (var i = 0; i < str.length; i++) {
-  multiplication *= +str[i];
-}
+var myF = function myF(str) {
+  if (typeof str == 'string') {
+    str.trim();
+    str.slice(0, 30);
+    var newStr = str.slice(0, 30);
 
-console.log(multiplication);
-var pow = Math.pow(multiplication, 3);
-console.log(pow);
-pow += '';
-console.log(+pow.substring(0, 2));
+    if (newStr.length >= 30) {
+      newStr += " ...";
+    }
+
+    return newStr;
+  } else return "Не строка";
+};
+
+console.log(myF(myStr));

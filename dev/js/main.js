@@ -1,23 +1,20 @@
 "use strict";
 
-let num = 266219;
+let myStr = 0;
 
+const myF = function (str) {
+    if ((typeof str) == 'string') {
+        str.trim();
 
-let str = num + '';
-console.log(str.split(''));
+        str.slice(0,30);
+        let newStr = str.slice(0,30);
 
-let multiplication = 1;
+        if (newStr.length >= 30) {newStr += " ..."}
 
-for(let i = 0; i < str.length; i++) {
-    multiplication *= +str[i];
-}
-console.log(multiplication);
+        return newStr;
+    }
+    else return "Не строка";
+};
 
-
-let pow = multiplication ** 3;
-console.log(pow);
-
-
-pow += '';
-console.log(+pow.substring(0, 2));
+console.log(myF(myStr));
 
