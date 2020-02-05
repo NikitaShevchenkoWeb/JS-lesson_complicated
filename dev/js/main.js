@@ -1,23 +1,20 @@
 "use strict";
 
-let num = 266219;
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+document.write(week.join(', '));
 
 
-let str = num + '';
-console.log(str.split(''));
-
-let multiplication = 1;
-
-for(let i = 0; i < str.length; i++) {
-    multiplication *= +str[i];
+document.write("<br>");
+for (let item of week) {
+    document.write("<br>" + item)
 }
-console.log(multiplication);
 
 
-let pow = multiplication ** 3;
-console.log(pow);
+document.write("<br><br>");
+document.write(week.slice(0, -2) + "<i>," + week.slice(-2) + "</i>");
 
 
-pow += '';
-console.log(+pow.substring(0, 2));
-
+document.write("<br><br>");
+let data = new Date();
+document.write("<b>" + week[data.getDay()-1] + "</b>");
