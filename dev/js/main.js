@@ -1,23 +1,48 @@
 "use strict";
 
-let num = 266219;
+console.log('---Пункт №1---');
+let arr = [23, 50, 4, 96, 44, 29, 64];
+arr.forEach(function (item) {
+   let elem = item.toString();
+
+   if ((elem.charAt(0) === '4') || elem.charAt(0) === '2') {
+       console.log(item);
+   }
+});
 
 
-let str = num + '';
-console.log(str.split(''));
+console.log('---Пункт №2---');
+let a = 2;
+let b = [];
+let newArr = [];
+let count = 0;
 
-let multiplication = 1;
-
-for(let i = 0; i < str.length; i++) {
-    multiplication *= +str[i];
+for (let i = 0; i < 99; i++) {
+    b.push(a+i);
 }
-console.log(multiplication);
 
+b.forEach(function (item) {
+    for (let i = 1; i <= 100; i++) {
 
-let pow = multiplication ** 3;
-console.log(pow);
+        let num = item / i;
 
+        if (Number.isInteger(num)) {
+            count++;
+        }
 
-pow += '';
-console.log(+pow.substring(0, 2));
+        if (count > 2) {
+            count = 0;
+            break;
+        } else if ((count === 2) && (i === 100)) {
+            newArr.push(item);
+            count = 0;
+            break;
+        }
 
+    }
+
+});
+
+newArr.forEach(function (item) {
+    console.log(item + ' : Делители этого числа: 1 и ' + item);
+});
