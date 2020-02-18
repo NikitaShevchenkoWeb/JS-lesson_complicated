@@ -1,23 +1,43 @@
 "use strict";
 
-let num = 266219;
+const btnClick = document.querySelector('.click'),
+      btnReset = document.querySelector('.reset'),
+      elem = document.querySelector('div');
+
+let animateId,
+    count = 0,
+    active = true;
+let animate = function () {
+    animateId = requestAnimationFrame(animate);
+    count++;
+
+    if (count <= 300) {
+        elem.style.top = count + 'px';
+        elem.style.left = count + 'px';
+        elem.style.height = 30 + count + "px";
+        elem.style.width = 30 + count + "px";
+    } else {
+        cancelAnimationFrame(animateId);
+    }
+};
 
 
-let str = num + '';
-console.log(str.split(''));
+btnClick.addEventListener('click', function () {
+    if (active) {
+        active = false;
+        animateId = requestAnimationFrame(animate);
+    } else {
+        active = true;
+        cancelAnimationFrame(animateId);
+    }
+});
 
-let multiplication = 1;
-
-for(let i = 0; i < str.length; i++) {
-    multiplication *= +str[i];
-}
-console.log(multiplication);
-
-
-let pow = multiplication ** 3;
-console.log(pow);
-
-
-pow += '';
-console.log(+pow.substring(0, 2));
-
+btnReset.addEventListener('click', function () {
+    count = 0;
+    elem.style.top = count + 'px';
+    elem.style.left = count + 'px';
+    elem.style.height = 30 + count + "px";
+    elem.style.width = 30 + count + "px";
+    active = true;
+    cancelAnimationFrame(animateId);
+});
